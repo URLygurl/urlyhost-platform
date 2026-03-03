@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - SESSION_SECRET=local-dev-secret-change-in-prod
+      - ADMIN_PASSWORD=urlyhost2024
+      - DB_PATH=/data/urlyhost.db
+      - NODE_ENV=development
+    volumes:
+      - urlyhost_data:/data
+
+volumes:
+  urlyhost_data:
